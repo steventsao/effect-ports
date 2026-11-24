@@ -23,6 +23,12 @@ Requires `effect` 4.1 or later. ESM only. The Cloudflare modules type bindings s
 pnpm add effect-ports effect
 ```
 
+Until the first npm release, install from GitHub (it builds itself on install):
+
+```bash
+npm install github:steventsao/effect-ports
+```
+
 ## Use
 
 ```ts
