@@ -1,0 +1,66 @@
+{
+  "name": "effect-ports",
+  "version": "0.1.0",
+  "description": "Runtime-neutral Effect services (blob store, SQL executor, keep-alive, per-isolate runtime) with layers for Cloudflare Workers, Node and memory, and contract checks any layer must pass.",
+  "license": "MIT",
+  "author": "Steven Tsao",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steventsao/effect-ports.git"
+  },
+  "keywords": [
+    "effect",
+    "effect-ts",
+    "cloudflare",
+    "workers",
+    "r2",
+    "d1",
+    "durable-objects",
+    "layer",
+    "ports"
+  ],
+  "type": "module",
+  "sideEffects": [],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./index": null,
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm check && pnpm test && pnpm build"
+  },
+  "peerDependencies": {
+    "effect": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261122.2",
+    "@effect/vitest": "^4.1.5",
+    "@types/node": "^24.0.0",
+    "effect": "^4.1.5",
+    "typescript": "^6.0.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
